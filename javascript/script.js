@@ -41,8 +41,11 @@ const operate = (num1, num2, operator) => {
 
 num.forEach((element, i) =>
   element.addEventListener('click', (e) => {
-    
-    displayContent.innerHTML = i + 1;
+    if (i === 9) {
+      displayContent.innerHTML = 0;
+    } else {
+      displayContent.innerHTML = i + 1;
+    }
   })
 );
 

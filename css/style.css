@@ -87,7 +87,8 @@ button {
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.9);
 }
 
-button:hover {
+button:hover,
+.operator button:hover {
   background-color: #3e5879;
   color: #fff;
 }
@@ -125,4 +126,5 @@ button:hover {
 .operator button {
   width: 70px;
   font-size: 1.8rem;
+  background-color: #bcccdc;
 }
