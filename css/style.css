@@ -34,7 +34,7 @@ body {
 .calculator {
   width: 400px;
   height: 550px;
-  border-radius: 1.3rem;
+  border-radius: 1.1rem;
   background-color: #86a788;
   display: flex;
   flex-direction: column;
@@ -62,6 +62,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 0.3rem;
 }
 
 .numpad {
@@ -86,11 +87,23 @@ button:hover {
   width: 100px;
   padding: 1.2rem;
 }
-
+/* 
 .operator {
   margin-bottom: 0.2rem;
+} */
+
+.clear-and-equal {
+  width: 320px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .clear-btn {
-  width: 320px;
+  width: 205px;
+  background-color: #e16a54;
+}
+
+.equal-btn {
+  width: 100px;
+  background-color: #d9dfc6;
 }
