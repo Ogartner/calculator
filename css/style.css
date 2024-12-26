@@ -9,6 +9,15 @@ body {
   background-color: #d9dfc6;
 }
 
+ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.1rem;
+}
+
 .header {
   height: 180px;
   display: flex;
@@ -28,12 +37,12 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 3rem;
+  margin-top: 1rem;
 }
 
 .calculator {
   width: 400px;
-  height: 550px;
+  height: 580px;
   border-radius: 1.1rem;
   background-color: #86a788;
   display: flex;
@@ -66,12 +75,12 @@ body {
 }
 
 .numpad {
-  margin: 1rem auto 0.8rem;
+  margin: 2rem auto 0.1rem;
 }
 
 button {
   width: 73px;
-  font-size: 2rem;
+  font-size: 1.2rem;
   padding: 1rem;
   border-radius: 1rem;
   margin: 0.1rem;
@@ -79,31 +88,41 @@ button {
 }
 
 button:hover {
-  background-color: #444;
+  background-color: #3e5879;
   color: #fff;
 }
 
 .numpad button {
-  width: 100px;
-  padding: 1.2rem;
+  width: 95px;
 }
-/* 
-.operator {
-  margin-bottom: 0.2rem;
-} */
 
-.clear-and-equal {
-  width: 320px;
+.clear {
   display: flex;
-  justify-content: space-between;
+  gap: 0.3rem;
 }
 
 .clear-btn {
-  width: 205px;
+  margin-top: 0.4rem;
+  width: 210px;
+  font-size: 1.5rem;
   background-color: #e16a54;
 }
 
 .equal-btn {
-  width: 100px;
+  width: 90px;
   background-color: #d9dfc6;
+  font-size: 1.4rem;
+}
+
+.num0 {
+  width: 150px;
+}
+
+.box0 {
+  width: 300px;
+}
+
+.operator button {
+  width: 70px;
+  font-size: 1.8rem;
 }

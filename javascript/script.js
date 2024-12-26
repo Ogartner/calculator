@@ -1,3 +1,8 @@
+// GLOBAL
+const displayContent = document.querySelector('.display-content');
+const numPad = document.querySelectorAll('ul');
+const num = document.querySelectorAll('.num');
+
 // Addition
 const add = (num1, num2) => {
   return num1 + num2;
@@ -33,5 +38,12 @@ const operate = (num1, num2, operator) => {
     return divide(num1, num2);
   }
 };
+
+num.forEach((element, i) =>
+  element.addEventListener('click', (e) => {
+    
+    displayContent.innerHTML = i + 1;
+  })
+);
 
 console.log(operate(8, 4, '*'));
