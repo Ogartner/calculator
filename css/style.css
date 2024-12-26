@@ -10,7 +10,7 @@ body {
 }
 
 .header {
-  height: 200px;
+  height: 180px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,33 +33,64 @@ body {
 
 .calculator {
   width: 400px;
-  height: 520px;
+  height: 550px;
   border-radius: 1.3rem;
   background-color: #86a788;
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-shadow: 2px 2px 2px 8px rgba(0, 0, 0, 0.9);
 }
 
 .display {
+  box-shadow: 2px 2px 1px 3px rgba(0, 0, 0, 0.9) inset;
   margin: 0.7rem auto;
   background-color: #eff3ea;
   border-radius: 1rem;
   width: 90%;
   height: 100px;
   display: flex;
-  justify-content: start;
+  justify-content: end;
   align-items: center;
   font-size: 3rem;
 }
 
 .pad {
   height: 400px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.numpad {
+  margin: 1rem auto 0.8rem;
 }
 
 button {
+  width: 73px;
   font-size: 2rem;
   padding: 1rem;
   border-radius: 1rem;
   margin: 0.1rem;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.9);
+}
+
+button:hover {
+  background-color: #444;
+  color: #fff;
+}
+
+.numpad button {
+  width: 100px;
+  padding: 1.2rem;
+}
+
+.operator {
+  margin-bottom: 0.2rem;
+}
+
+.clear-btn {
+  width: 320px;
 }
