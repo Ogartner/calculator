@@ -64,6 +64,10 @@ ul {
   font-size: 3rem;
 }
 
+.display-content {
+  margin-right: 0.2rem;
+}
+
 .pad {
   height: 400px;
   width: 100%;
@@ -88,7 +92,7 @@ button {
 }
 
 button:hover,
-.operator button:hover {
+.operator-box button:hover {
   background-color: #3e5879;
   color: #fff;
 }
@@ -123,8 +127,16 @@ button:hover,
   width: 300px;
 }
 
-.operator button {
+.operator-box button {
   width: 70px;
   font-size: 1.8rem;
   background-color: #bcccdc;
+}
+
+.flash {
+  background-color: #bcccdc;
+}
+
+.flash-b {
+  background-color: #e7fbb4;
 }
