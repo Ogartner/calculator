@@ -5,10 +5,12 @@ const numPad = document.querySelectorAll('ul');
 const numBtn = document.querySelectorAll('.num');
 const operatorBtn = document.querySelectorAll('.operator');
 const equalBtn = document.querySelector('.equal-btn');
+const clearBtn = document.querySelector('.clear-btn');
 
 let num1;
 let num2;
 let operator;
+let numList = [];
 
 // Addition
 const add = (num1, num2) => {
@@ -49,7 +51,9 @@ const operate = (num1, num2, operator) => {
 const pressNumBtn = () => {
   numBtn.forEach((element, i) => {
     element.addEventListener('click', (e) => {
-      if (i === 9) {
+      if (displayContent.innerHTML.length === 11) {
+        return;
+      } else if (i === 9) {
         displayContent.innerHTML += 0;
       } else {
         displayContent.innerHTML += i + 1;
@@ -61,15 +65,20 @@ const pressNumBtn = () => {
 const pressOperatorBtn = () => {
   operatorBtn.forEach((element, i) => {
     element.addEventListener('click', (e) => {
-      num1 = Number(displayContent.innerHTML);
-      setTimeout(() => {
-        display.classList.toggle('flash');
-      }, 250);
+      if (displayContent.innerHTML === '') {
+        displayContent.innerHTML = num1;
+      } else {
+        num1 = Number(displayContent.innerHTML);
+        setTimeout(() => {
+          display.classList.toggle('flash-operator');
+        }, 250);
+        display.classList.toggle('flash-operator');
+      }
       displayContent.innerHTML = '';
-      display.classList.toggle('flash');
 
       switch (i) {
         case 0:
+          numList.push(num1);
           operator = '+';
           break;
         case 1:
@@ -90,11 +99,29 @@ const pressEqualBtn = () => {
   equalBtn.addEventListener('click', () => {
     num2 = Number(displayContent.innerHTML);
     setTimeout(() => {
-      display.classList.toggle('flash-b');
+      display.classList.toggle('flash-equal');
     }, 250);
-    display.classList.toggle('flash-b');
+    display.classList.toggle('flash-equal');
     num1 = operate(num1, num2, operator);
-    displayContent.innerHTML = `${num1}`;
+    if (num1 === Infinity) {
+      displayContent.innerHTML = 'Infinity';
+    } else if (num1 > 99999999999) {
+      num1 = 99999999999;
+      displayContent.innerHTML = Math.round(num1 * 100) / 100;
+    } else {
+      displayContent.innerHTML = Math.round(num1 * 100) / 100;
+    }
+  });
+};
+
+const pressClearBtn = () => {
+  clearBtn.addEventListener('click', () => {
+    setTimeout(() => {
+      display.classList.toggle('flash-clear');
+    }, 250);
+    display.classList.toggle('flash-clear');
+    displayContent.innerHTML = '';
+    num1 = 0;
   });
 };
 
@@ -102,6 +129,7 @@ const init = () => {
   pressNumBtn();
   pressOperatorBtn();
   pressEqualBtn();
+  pressClearBtn();
 };
 
 init();

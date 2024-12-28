@@ -133,10 +133,14 @@ button:hover,
   background-color: #bcccdc;
 }
 
-.flash {
+.flash-operator {
   background-color: #bcccdc;
 }
 
-.flash-b {
+.flash-equal {
   background-color: #e7fbb4;
+}
+
+.flash-clear {
+  background-color: #df6d2d;
 }
