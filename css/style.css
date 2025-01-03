@@ -120,11 +120,12 @@ button:hover,
 }
 
 .num0 {
-  width: 150px;
+  width: 180px;
 }
 
 .box0 {
   width: 300px;
+  text-align: center;
 }
 
 .operator-box button {

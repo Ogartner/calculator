@@ -7,6 +7,8 @@ const operatorBtn = document.querySelectorAll('.operator');
 const equalBtn = document.querySelector('.equal-btn');
 const clearBtn = document.querySelector('.clear-btn');
 
+let temp;
+let num;
 let num1;
 let num2;
 let operator;
@@ -65,10 +67,21 @@ const pressNumBtn = () => {
 const pressOperatorBtn = () => {
   operatorBtn.forEach((element, i) => {
     element.addEventListener('click', (e) => {
-      if (displayContent.innerHTML === '') {
+      numList.push(Number(displayContent.innerHTML));
+      console.log(numList.length);
+      if (numList.length === 2) {
+        setTimeout(() => {
+          display.classList.toggle('flash-operator');
+        }, 250);
+        console.log(operator);
+        num1 = operate(numList[0], numList[1], operator);
         displayContent.innerHTML = num1;
+        numList.pop();
+        numList[0] = num1;
+        console.log(num1);
+        display.classList.toggle('flash-operator');
       } else {
-        num1 = Number(displayContent.innerHTML);
+        num1 = numList[0];
         setTimeout(() => {
           display.classList.toggle('flash-operator');
         }, 250);
@@ -78,7 +91,6 @@ const pressOperatorBtn = () => {
 
       switch (i) {
         case 0:
-          numList.push(num1);
           operator = '+';
           break;
         case 1:
@@ -102,14 +114,21 @@ const pressEqualBtn = () => {
       display.classList.toggle('flash-equal');
     }, 250);
     display.classList.toggle('flash-equal');
-    num1 = operate(num1, num2, operator);
-    if (num1 === Infinity) {
+    num = operate(num1, num2, operator);
+    if (num === Infinity) {
       displayContent.innerHTML = 'Infinity';
-    } else if (num1 > 99999999999) {
-      num1 = 99999999999;
-      displayContent.innerHTML = Math.round(num1 * 100) / 100;
+      numList.pop();
+    } else if (num > 99999999999) {
+      num = 99999999999;
+      displayContent.innerHTML = Math.round(num * 100) / 100;
+      numList.pop();
+    } else if (num < -99999999999) {
+      num = -99999999999;
+      displayContent.innerHTML = Math.round(num * 100) / 100;
+      numList.pop();
     } else {
-      displayContent.innerHTML = Math.round(num1 * 100) / 100;
+      displayContent.innerHTML = Math.round(num * 100) / 100;
+      numList.pop();
     }
   });
 };
@@ -118,10 +137,11 @@ const pressClearBtn = () => {
   clearBtn.addEventListener('click', () => {
     setTimeout(() => {
       display.classList.toggle('flash-clear');
-    }, 250);
+    }, 150);
     display.classList.toggle('flash-clear');
     displayContent.innerHTML = '';
     num1 = 0;
+    numList.pop();
   });
 };
 
